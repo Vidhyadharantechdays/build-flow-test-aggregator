@@ -17,3 +17,22 @@ To configure test aggregation you need to set the *"Flow run needs a workspace"*
 Then just enable the *"Aggregate build flow test results"* post-build action:
 
 <img src="http://cl.ly/image/3I2p213I3O3C/Image%202014-11-07%20at%201.21.02%20pm.png" />
+
+## Results with configured Build name
+
+  Suppose you have a Build Flow 
+  ``` grovy
+  ignore(UNSTABLE) {
+         build ("SuiteJob", suiteToTest: "T:/TestLab/SuiteTests1.xml",
+                    TestSuiteName:"Deploy Test with parser" ) 
+   }
+  ignore(UNSTABLE){
+      build ("SuiteJob", suiteToTest: "T:/TestLab/SuiteTest.xml", 
+                    TestSuiteName:"UnDeploy Test )
+   }
+   ```
+  In some cases you would need the test result should display with build name . I used [Build Name Setter Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Build+Name+Setter+Plugin)
+  So your results will display with build name like the one shown below
+  <img src="https://lh3.googleusercontent.com/-wBKZMOnhY_M/VN6Fnh_5ebI/AAAAAAAAIkQ/-sXKTzvbk9I/w901-h271-no/aggregated-test-with-buildname.PNG"/>
+  
+  
